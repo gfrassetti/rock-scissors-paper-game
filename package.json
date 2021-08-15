@@ -1,0 +1,22 @@
+{
+  "name": "rock-scissors-paper-game",
+  "version": "1.0.0",
+  "description": "Juego Piedra papel o tijera ",
+  "main": "main.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/gfrassetti/rock-scissors-paper-game.git"
+  },
+  "author": "Guido Frassetti",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/gfrassetti/rock-scissors-paper-game/issues"
+  },
+  "homepage": "https://github.com/gfrassetti/rock-scissors-paper-game#readme",
+  "dependencies": {
+    "bootstrap": "^5.1.0"
+  }
+}
