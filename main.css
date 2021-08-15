@@ -1,0 +1,94 @@
+#logo {
+  text-align: center;
+  margin: 10px;
+  border: 10px;
+}
+
+#marcador {
+  background-color: #0dcaf0;
+  height: 15cm;
+}
+
+#estado {
+  text-align: center;
+}
+
+#maquina {
+  font-size: 30px;
+  font-family: Impact, Haettenschweiler, "Arial Narrow Bold", sans-serif;
+}
+
+#jugador {
+  font-size: 30px;
+  font-family: Impact, Haettenschweiler, "Arial Narrow Bold", sans-serif;
+}
+
+.opciones {
+  text-align: center;
+}
+
+#piedra {
+  position: absolute;
+  border-radius: 10px;
+  max-width: 5%;
+  margin: 5px;
+  opacity: 0.8;
+  right: 35cm;
+}
+
+#imagen-jugador {
+  max-width: 10%;
+  opacity: 1;
+  mix-blend-mode: multiply;
+}
+
+#papel {
+  position: absolute;
+  border-radius: 10px;
+  max-width: 5%;
+  margin: 5px;
+  opacity: 0.8;
+  right: 25cm;
+}
+
+#tijera {
+  position: absolute;
+  border-radius: 10px;
+  max-width: 5%;
+  margin: 5px;
+  opacity: 0.8;
+  right: 15cm;
+}
+
+.col-sm-4 {
+  text-align: center;
+  margin-top: 1cm;
+}
+
+.narracion {
+  text-align: center;
+  font-size: 30px;
+  font-family: Impact, Haettenschweiler, "Arial Narrow Bold", sans-serif;
+  margin-bottom: 2cm;
+}
+
+#piedra:hover {
+  color: rgb(116, 223, 255);
+  background-color: white;
+  border: 3px solid rgb(125, 255, 157);
+  transform: scale(1.2);
+}
+
+#papel:hover {
+  color: rgb(116, 223, 255);
+  background-color: white;
+  border: 3px solid rgb(125, 255, 157);
+  transform: scale(1.2);
+}
+
+#tijera:hover {
+  color: rgb(116, 223, 255);
+  background-color: white;
+  border: 3px solid rgb(125, 255, 157);
+  transform: scale(1.2);
+}

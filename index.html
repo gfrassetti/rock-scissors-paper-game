@@ -14,29 +14,38 @@
     <link rel="stylesheet" href="main.css" />
   </head>
   <body>
-    <div class="container px-4">
-      <div class="row gx-5" style="height: 15cm; background-color: #fd7e14">
-        <div class="col">
-          <div class="p-3 border bg-light">Maquina:</div>
-        </div>
-        <div class="col">
-          <div class="p-3 border bg-light">Jugador:</div>
-        </div>
-            <div style="background-color: black; margin: 1cm; border: 10px; border-color: chartreuse; height:10cm; width: 12cm;"></div>
+    <div class="container">
+      <div id="logo">
+        <img src="images.png" class="img-fluid" alt="Logo">
       </div>
-      <div class="container overflow-hidden">
-        <div class="row gx-5">
-          <div class="col -4">
-            <div class="p-3 border bg-light">Piedra</div>
+      <div class="alert alert-info" role="alert" id="estado">
+        Haz Click en una opcion para comenzar!
+      </div>
+        <div class="row" id="marcador">
+          <div class="col-sm-4" id="maquina">
+            Maquina: 0
           </div>
-          <div class="col-4">
-            <div class="p-3 border bg-light">Papel</div>
+          <div class="col-sm-4">
           </div>
-          <div class="col-4">
-            <div class="p-3 border bg-light">Tijera</div>
+          <div class="col-sm-4" id="jugador">
+            Jugador: 0
+          </div>
+          <div class="narracion">
+            <div class="imagen-jugada">
+              <img src="" alt="jugada" id="imagen-jugador">
+            </div>
+              <p>Narracion</p>
+            <div class="imagen-jugada">
+              <img src="" alt="jugada" id="imagen-jugador">
+            </div>  
           </div>
         </div>
-    </div>
+        <div class="opciones">
+          <img src="piedra.png" class="rounded float-start" alt="Piedra" id="piedra">
+          <img src="papel.png" class="rounded float-end" alt="Papel" id="papel">
+          <img src="tijera.png" class="rounded float-end" alt="Tijera" id="tijera">
+        </div>
+      </div>
     <script src="main.js"></script>
   </body>
 </html>
