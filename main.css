@@ -23,10 +23,6 @@
   font-family: Impact, Haettenschweiler, "Arial Narrow Bold", sans-serif;
 }
 
-.opciones {
-  text-align: center;
-}
-
 #piedra {
   position: absolute;
   border-radius: 10px;
@@ -91,4 +87,13 @@
   background-color: white;
   border: 3px solid rgb(125, 255, 157);
   transform: scale(1.2);
+}
+
+button {
+  position: relative;
+  left: 8cm;
+}
+
+.oculto {
+  display: none;
 }

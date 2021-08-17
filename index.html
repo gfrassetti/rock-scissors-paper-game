@@ -16,36 +16,50 @@
   <body>
     <div class="container">
       <div id="logo">
-        <img src="node_modules/bootstrap/img/images.png" class="img-fluid" alt="Logo">
+        <img src="img/images.png" class="img-fluid" alt="Logo" />
       </div>
       <div class="alert alert-info" role="alert" id="estado">
-        Haz Click en una opcion para comenzar!
+        Haz Click en "Jugar" para comenzar!
+        <button type="button" class="btn btn-info btn-lg" id="jugar">
+          Jugar
+        </button>
       </div>
-        <div class="row" id="marcador">
-          <div class="col-sm-4" id="maquina">
-            Maquina: 0
+
+      <div class="row" id="marcador">
+        <div class="col-sm-4" id="maquina">Maquina: 0</div>
+        <div class="col-sm-4"></div>
+        <div class="col-sm-4" id="jugador">Jugador: 0</div>
+        <div class="narracion">
+          <div class="imagen-jugada">
+            <img src="" alt="jugada" id="imagen-jugador" />
           </div>
-          <div class="col-sm-4">
-          </div>
-          <div class="col-sm-4" id="jugador">
-            Jugador: 0
-          </div>
-          <div class="narracion">
-            <div class="imagen-jugada">
-              <img src="" alt="jugada" id="imagen-jugador">
-            </div>
-              <p>Narracion</p>
-            <div class="imagen-jugada">
-              <img src="" alt="jugada" id="imagen-jugador">
-            </div>  
+          <p id="resultado">Narracion</p>
+          <div class="imagen-jugada">
+            <img src="" alt="jugada" id="imagen-jugador" />
           </div>
         </div>
-        <div class="opciones">
-          <img src="node_modules/bootstrap/img/piedra.png" class="rounded float-start" alt="Piedra" id="piedra">
-          <img src="node_modules/bootstrap/img/papel.png" class="rounded float-end" alt="Papel" id="papel">
-          <img src="node_modules/bootstrap/img/tijera.png" class="rounded float-end" alt="Tijera" id="tijera">
-        </div>
       </div>
+      <div class="manos">
+        <img
+          src="img/piedra.png"
+          class="rounded float-start"
+          alt="Piedra"
+          id="piedra"
+        />
+        <img
+          src="img/papel.png"
+          class="rounded float-end"
+          alt="Papel"
+          id="papel"
+        />
+        <img
+          src="img/tijera.png"
+          class="rounded float-end"
+          alt="Tijera"
+          id="tijera"
+        />
+      </div>
+    </div>
     <script src="main.js"></script>
   </body>
 </html>
