@@ -43,8 +43,9 @@ function seleccionarJugada(e)
 
     jugadas($jugadaUsuario, jugadaMaquina)
     resultadoPartida(puntajeUsuario, puntajeMaquina)
-
 }
+
+
 
 function obtenerManoAleatoria()
 {
