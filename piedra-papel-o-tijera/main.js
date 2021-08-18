@@ -45,8 +45,6 @@ function seleccionarJugada(e)
     resultadoPartida(puntajeUsuario, puntajeMaquina)
 }
 
-
-
 function obtenerManoAleatoria()
 {
     const $img = document.querySelectorAll('.manos img')
