@@ -1,5 +1,5 @@
-let secuenciaJugador = []
-let secuenciaMaquina = []
+let puntajeUsuario = 0
+let puntajeMaquina = 0
 const $manos = document.querySelector('.manos')
 
 
@@ -7,10 +7,13 @@ document.querySelector('button').onclick = empezarJuego
 ocultarManos()
 
 
+
 function empezarJuego()
 {
     mostrarManos()
-    seleccionarJugada()
+    document.querySelectorAll('.manos img').forEach(function ($jugadaUsuario) {
+        $jugadaUsuario.onclick = seleccionarJugada
+    })
   
 }
 function mostrarManos()
@@ -23,42 +26,143 @@ function ocultarManos()
     $manos.className = 'oculto'
 }
 
+function resaltarMano($jugadaUsuario)
+{
+    $jugadaUsuario.style.opacity = 1
+    setTimeout(function () { $jugadaUsuario.style.opacity = 0.8;}, 62)
+}
+
 function seleccionarJugada(e)
 {
     let jugadaMaquina = obtenerManoAleatoria()
-    let $mano = e.target;
-    resaltarMano($mano)
-    mostrarManoEnPantalla($mano)
+    let $jugadaUsuario = e.target;
+    resaltarMano($jugadaUsuario)
+    mostrarManoEnPantallaJugador($jugadaUsuario)
+    mostrarManoenPantallaMaquina(jugadaMaquina)
     console.log(e)
 
-
-    if ($mano.id === jugadaMaquina.id)
-    {
-        print("Empate")
-        document.querySelector('#resultado').textContent = 'Empate'
-    }
+    jugadas($jugadaUsuario, jugadaMaquina)
+    resultadoPartida(puntajeUsuario, puntajeMaquina)
 
 }
 
 function obtenerManoAleatoria()
 {
     const $img = document.querySelectorAll('.manos img')
-    console.log($img)
-
-    var randomImg = Math.floor(Math.random() * $img.length)
-    console.log(randomImg)
-    return randomImg
-
+    let $manoAleatoria = Math.floor(Math.random() * $img.length)
+    return $img[$manoAleatoria]
 }
 
-function resltarMano($mano)
-{
-    $mano.style.opacity = 1
-    setTimeout(function () { $mano.style.opacity = 0.5;}, 500)
-}
 
-function mostrarManoEnPantalla($mano)
+
+function mostrarManoEnPantallaJugador($jugadaUsuario)
 {
     const $jugadaEnPantalla = document.querySelector('#imagen-jugador')
-    $jugadaEnPantalla.appendChild($mano)
+    $jugadaEnPantalla.textContent = $jugadaUsuario.id
+}
+
+function mostrarManoenPantallaMaquina($jugadaMaquina)
+{
+    const $jugadaEnPantalla = document.querySelector('#imagen-maquina')
+    $jugadaEnPantalla.textContent = $jugadaMaquina.id
+}
+
+
+function puntosMaquina(puntajeMaquina)
+{
+    document.querySelector('#maquina').textContent = 'Maquina: ' + puntajeMaquina
+}
+
+function puntosUsuario(puntajeUsuario)
+{
+    document.querySelector('#jugador').textContent = 'Jugador: ' + puntajeUsuario
+}
+
+function cambiarResultadoEnPantalla($jugada)
+{
+    document.querySelector('#resultado').textContent = 'Gana: '  + $jugada +'!' 
+}
+
+function jugadas($jugadaUsuario, jugadaMaquina)
+{
+    if ($jugadaUsuario.id === jugadaMaquina.id)
+    {
+        console.log('Empate!')
+        document.querySelector('#resultado').textContent = 'Es un Empate!'
+ 
+    }
+    if ($jugadaUsuario.id === 'piedra' && jugadaMaquina.id === 'papel')
+    {
+        console.log('Gana papel!')
+        puntajeMaquina++;
+        puntosMaquina(puntajeMaquina)
+        cambiarResultadoEnPantalla(jugadaMaquina.id)
+    }
+    if ($jugadaUsuario.id === 'papel' && jugadaMaquina.id === 'piedra')
+    {
+        console.log('Gana papel!')
+        puntajeUsuario++;
+        puntosUsuario(puntajeUsuario)
+        cambiarResultadoEnPantalla($jugadaUsuario.id)
+    }
+    if ($jugadaUsuario.id === 'papel' && jugadaMaquina.id === 'tijera')
+    {
+        console.log('Gana tijera!')
+        puntajeMaquina++;
+        puntosMaquina(puntajeMaquina)
+        cambiarResultadoEnPantalla(jugadaMaquina.id)
+    }
+    if ($jugadaUsuario.id === 'tijera' && jugadaMaquina.id === 'papel')
+    {
+        console.log('Gana tijera!')
+        puntajeUsuario++;
+        puntosUsuario(puntajeUsuario)
+        cambiarResultadoEnPantalla($jugadaUsuario.id)
+    }
+    if ($jugadaUsuario.id === 'tijera' && jugadaMaquina.id === 'piedra')
+    {
+        console.log('Gana piedra!')
+        puntajeMaquina++;
+        puntosMaquina(puntajeMaquina)
+        cambiarResultadoEnPantalla(jugadaMaquina.id)
+    }
+    if ($jugadaUsuario.id === 'piedra' && jugadaMaquina.id === 'tijera')
+    {
+        console.log('Gana piedra!')
+        puntajeUsuario++;
+        puntosUsuario(puntajeUsuario)
+        cambiarResultadoEnPantalla($jugadaUsuario.id)
+    }
+    
+
+}
+
+function cambiarAlert(estado, victoria=false)
+{
+    const $estado = document.querySelector('#estado');
+    $estado.textContent = estado
+    if (victoria)
+    {
+        $estado.classList.remove('alert-info');
+        $estado.classList.add('alert-success')
+    }
+    else {
+        $estado.classList.remove('alert-info');
+        $estado.classList.add('alert-danger')
+    }
+}
+function resultadoPartida()
+{
+    if (puntajeUsuario === 3)
+    {
+        document.querySelector('#resultado').textContent = 'Ganaste!, pulsa "Reset" para comenzar de nuevo'
+        cambiarAlert('Ganaste!', true)
+        ocultarManos()
+         
+    }
+    if(puntajeMaquina === 3) {
+        document.querySelector('#resultado').textContent = 'Perdiste!, pulsa "Reset" para comenzar de nuevo'
+        ocultarManos()
+        cambiarAlert('Perdiste!', false)
+    }
 }

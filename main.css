@@ -11,6 +11,7 @@
 
 #estado {
   text-align: center;
+  font-size: large;
 }
 
 #maquina {
@@ -23,37 +24,43 @@
   font-family: Impact, Haettenschweiler, "Arial Narrow Bold", sans-serif;
 }
 
-#piedra {
-  position: absolute;
-  border-radius: 10px;
-  max-width: 5%;
-  margin: 5px;
-  opacity: 0.8;
-  right: 35cm;
-}
-
 #imagen-jugador {
   max-width: 10%;
   opacity: 1;
   mix-blend-mode: multiply;
 }
 
-#papel {
-  position: absolute;
-  border-radius: 10px;
-  max-width: 5%;
+#imagen-maquina {
+  max-width: 10%;
+  opacity: 1;
+  mix-blend-mode: multiply;
+  position: relative;
+  left: 90%;
+  bottom: 2.45cm;
+}
+
+#piedra {
+  position: static;
+  max-width: 3.5cm;
   margin: 5px;
   opacity: 0.8;
-  right: 25cm;
+  right: 45cm;
+}
+
+#papel {
+  position: static;
+  max-width: 3.5cm;
+  margin: 5px;
+  opacity: 0.8;
+  right: 32cm;
 }
 
 #tijera {
-  position: absolute;
-  border-radius: 10px;
-  max-width: 5%;
+  position: static;
+  max-width: 3.5cm;
   margin: 5px;
   opacity: 0.8;
-  right: 15cm;
+  margin-right: 11cm;
 }
 
 .col-sm-4 {
