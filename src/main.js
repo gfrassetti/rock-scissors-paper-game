@@ -5,12 +5,26 @@ const $manos = document.querySelector('.manos')
 
 document.querySelector('button').onclick = empezarJuego
 ocultarManos()
+ocultarBotonReset()
 
+function ocultarBotonReset()
+{
+    const $reset = document.querySelector('#reset')
+    $reset.className = 'oculto'
+}
+
+function mostarBotonReset()
+{
+    const $reset = document.querySelector('#reset')
+    $reset.className = "btn btn-outline-info btn-lg"
+}
 
 
 function empezarJuego()
 {
     mostrarManos()
+    ocultarBotonJugar()
+    mostarBotonReset()
     document.querySelectorAll('.manos img').forEach(function ($jugadaUsuario) {
         $jugadaUsuario.onclick = seleccionarJugada
     })
@@ -136,6 +150,11 @@ function jugadas($jugadaUsuario, jugadaMaquina)
 
 }
 
+function ocultarBotonJugar()
+{
+    document.querySelector('#jugar').className = 'oculto'
+}
+
 function cambiarAlert(estado, victoria=false)
 {
     const $estado = document.querySelector('#estado');
@@ -144,10 +163,15 @@ function cambiarAlert(estado, victoria=false)
     {
         $estado.classList.remove('alert-info');
         $estado.classList.add('alert-success')
+        crearBtn("btn btn-success btn-lg")
+        ocultarManos()
     }
     else {
         $estado.classList.remove('alert-info');
         $estado.classList.add('alert-danger')
+        crearBtn("btn btn-light btn-lg")
+        ocultarManos()
+
     }
 }
 function resultadoPartida()
@@ -165,3 +189,24 @@ function resultadoPartida()
         cambiarAlert('Perdiste!', false)
     }
 }
+
+function crearBtn(className)
+{
+
+    const $estado = document.querySelector('#estado');
+    const btn = document.createElement('button');
+    btn.textContent = 'Reset'
+    btn.className = className
+    $estado.appendChild(btn)
+    btn.style.position = "relative";
+    btn.style.left = "30%"
+    btn.onclick = actualizarPagina
+
+}
+
+function actualizarPagina(e)
+{
+    e.preventDefault()
+    window.location.reload()
+}
+

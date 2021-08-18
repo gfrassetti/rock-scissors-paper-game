@@ -9,9 +9,15 @@
   height: 15cm;
 }
 
+#reset {
+  position: relative;
+  left: 35%;
+  bottom: 25px;
+}
+
 #estado {
   text-align: center;
-  font-size: large;
+  font-size: x-large;
 }
 
 #maquina {
@@ -96,7 +102,7 @@
   transform: scale(1.2);
 }
 
-button {
+#jugar {
   position: relative;
   left: 8cm;
 }
