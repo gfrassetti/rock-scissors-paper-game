@@ -33,7 +33,6 @@
 #imagen-jugador {
   max-width: 10%;
   opacity: 1;
-  mix-blend-mode: multiply;
 }
 
 #imagen-maquina {
