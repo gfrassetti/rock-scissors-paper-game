@@ -16,7 +16,7 @@ function ocultarBotonReset()
 function mostarBotonReset()
 {
     const $reset = document.querySelector('#reset')
-    $reset.className = "btn btn-outline-info btn-lg"
+    $reset.className = "btn btn-info btn-lg"
 }
 
 
@@ -166,6 +166,7 @@ function cambiarAlert(estado, victoria=false)
         crearBtn("btn btn-success btn-lg")
         ocultarManos()
     }
+    
     else {
         $estado.classList.remove('alert-info');
         $estado.classList.add('alert-danger')
