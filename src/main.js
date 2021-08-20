@@ -24,7 +24,7 @@ function empezarJuego()
 {
     mostrarManos()
     ocultarBotonJugar()
-    mostarBotonReset()
+    cambiarEstadoAlComenzar()
     document.querySelectorAll('.manos img').forEach(function ($jugadaUsuario) {
         $jugadaUsuario.onclick = seleccionarJugada
     })
@@ -161,7 +161,7 @@ function cambiarAlert(estado, victoria=false)
     $estado.textContent = estado
     if (victoria)
     {
-        $estado.classList.remove('alert-info');
+        $estado.classList.remove('alert-warning');
         $estado.classList.add('alert-success')
         crearBtn("btn btn-success btn-lg")
         ocultarManos()
@@ -211,3 +211,11 @@ function actualizarPagina(e)
     window.location.reload()
 }
 
+function cambiarEstadoAlComenzar()
+{
+    const $estado = document.querySelector('#estado')
+    $estado.classList.remove('alert-info')
+    $estado.classList.add('alert-warning')
+    $estado.textContent = "A jugar!"
+    crearBtn('btn btn-outline-warning btn-lg')
+}
